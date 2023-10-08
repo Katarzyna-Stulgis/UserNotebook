@@ -1,0 +1,8 @@
+<mat-toolbar color="primary">
+    <button [routerLink]="['/']" mat-icon-button color="white" aria-label="Example icon button with a home icon">
+        <mat-icon>home</mat-icon>
+    </button>
+    <button [routerLink]="['/add-user']" mat-button>Dodaj użytkownika</button>
+    <button mat-button (click)="generateReport()">Generuj raport</button>
+</mat-toolbar>
+<router-outlet></router-outlet>

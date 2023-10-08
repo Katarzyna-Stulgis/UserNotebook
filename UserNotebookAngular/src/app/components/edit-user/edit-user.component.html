@@ -1,0 +1,78 @@
+<div class="container">
+    <span class="title">{{title}}</span>
+    <form class="form">
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Imię </mat-label>
+            <input matInput [formControl]="firstNameFormControl" [(ngModel)]="user.firstName" placeholder="Imię"
+                name="Imię" required="To pole jest wymagane">
+            <mat-error>
+                Imię powinno zawierac tylko litery i maksymalnie 50 znaków
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Nazwisko</mat-label>
+            <input matInput [formControl]="lastNameFormControl" [(ngModel)]="user.lastName" placeholder="Nazwisko"
+                name="Nazwisko" required="To pole jest wymagane">
+            <mat-error>
+                Nazwisko powinno zawierac tylko litery i maksymalnie 150 znaków
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Data urodzenia MM/DD/YYYY</mat-label>
+            <input matInput [formControl]="birthDateFormControl" [matDatepicker]="picker" [(ngModel)]="user.birthDate"
+                placeholder="Data urodzenia" name="Data urodzenia" required="To pole jest wymagane">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error>
+                Niepoprawna forma daty oraz data opwinna być z przeszłości 
+            </mat-error>
+        </mat-form-field>
+
+        <div class="category-div">
+            <mat-label id="example-radio-group-label">Płeć</mat-label>
+            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                [formControl]="genderFormControl" [(ngModel)]="user.gender" name="Płeć"
+                required="To pole jest wymagane">
+
+                <mat-radio-button class="example-radio-button" *ngFor="let gender of genders" [value]="gender.Value">
+                    {{gender.Name}}
+                </mat-radio-button>
+            </mat-radio-group>
+        </div>
+
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Telefon</mat-label>
+            <span matPrefix>+48 &nbsp;</span>
+            <input type="tel" matInput [(ngModel)]="user.phoneNumber" [formControl]="phoneFormControl"
+                placeholder="Telefon" name="Telefon">
+            <mat-error *ngIf="phoneFormControl.hasError('pattern') ">
+                Numer teleonu powienien zawierać 9 cyfr
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Stanowisko </mat-label>
+            <input matInput [(ngModel)]="user.position" placeholder="Stanowisko" [formControl]="positionFormControl"
+                name="Stanowisko">
+            <mat-error>
+                Stanowisko powinno zawierac tylko litery
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Rozmiar buta </mat-label>
+            <input matInput [(ngModel)]="user.shoeSize" placeholder="Rozmiar buta" [formControl]="shoeSizeFormControl"
+                name="Rozmiar">
+            <mat-error>
+                Rozmiar buta powinien zawierac tylko cyfry
+            </mat-error>
+        </mat-form-field>
+
+    </form>
+
+    <div>
+        <button mat-raised-button (click)="Save()" color="primary">Ok</button>
+    </div>
+</div>

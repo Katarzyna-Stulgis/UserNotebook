@@ -1,0 +1,47 @@
+.dialog {
+    text-align: center;
+    width: max-content;
+}
+
+.title{
+    text-align: center;
+    font-size: xx-large;
+}
+
+mat-form-field {
+    display: inline-block;
+}
+
+.form {
+    margin-top: 15px;
+    width: 650px;
+}
+
+textarea {
+    height: 100px;
+}
+
+.full-width {
+    display: grid;
+}
+
+.mat-dialog-actions {
+    float: right;
+}
+
+#example-radio-group-label{
+    padding-right: 40px;
+}
+
+.example-radio-button{
+    padding-right: 30px;
+}
+
+.category-div{
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.container{
+    margin: 30px
+}
